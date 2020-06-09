@@ -1,5 +1,8 @@
 # google-pay-poc
 
+## Poc Working
+![googlePay](https://user-images.githubusercontent.com/11022437/84204998-9c1f7880-aa82-11ea-8665-5261becbcd77.gif)
+
 ## Project setup
 ```
 yarn install
@@ -14,11 +17,3 @@ yarn dev
 ```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
