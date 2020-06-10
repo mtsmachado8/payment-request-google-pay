@@ -18,8 +18,20 @@ const baseCardPaymentMethod = {
 const tokenizationSpecification = {
   type: 'PAYMENT_GATEWAY',
   parameters: {
-    gateway: 'example',
-    gatewayMerchantId: 'exampleGatewayMerchantId'
+    // gateway: 'example',
+    // gatewayMerchantId: 'exampleGatewayMerchantId'
+    gateway: 'mundipagg',
+    gatewayMerchantId: 'merch_MXGNWZCz5UxzeQz0',
+    type: 'google_pay',
+    google_pay: {
+      version: 'EC_v1',
+      merchant_identifier: '',
+      data: '',
+      header: {
+        ephemeral_public_key: ''
+      },
+      signature: ''
+    }
   }
 }
 
