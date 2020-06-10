@@ -2,22 +2,16 @@
 // @todo a merchant ID is available for a production environment after approval by Google
 // See {@link https://developers.google.com/pay/api/web/guides/test-and-deploy/integration-checklist|Integration checklist}
 
-const allowedCardAuthMethods = ['PAN_ONLY', 'CRYPTOGRAM_3DS']
-
-const allowedCardNetworks = [
-  'AMEX',
-  'DISCOVER',
-  'INTERAC',
-  'JCB',
-  'MASTERCARD',
-  'VISA'
-]
-
 const baseCardPaymentMethod = {
   type: 'CARD',
   parameters: {
-    allowedAuthMethods: allowedCardAuthMethods,
-    allowedCardNetworks
+    allowedCardNetworks: ['MASTERCARD', 'VISA' ], // Other options: 'AMEX','DISCOVER','INTERAC','JCB'
+    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+    // billingAddressRequired: false, // default false
+    // billingAddressParameters: { // default none
+    //   format: 'FULL',
+    //   phoneNumberRequired: true
+    // }
   }
 }
 
@@ -36,16 +30,29 @@ const cardPaymentMethod = {
 
 // --------------------
 
-const baseRequest = {
+const apiConfig = {
   apiVersion: 2,
   apiVersionMinor: 0
 }
 
 const transactionInfo = {
   totalPriceStatus: 'FINAL',
-  totalPrice: '1.00',
-  currencyCode: 'USD',
-  countryCode: 'US'
+  totalPrice: '12.00',
+  totalPriceLabel: "Total",
+  currencyCode: 'BRL',
+  countryCode: 'BR',
+  displayItems: [
+    {
+      label: "Subtotal",
+      type: "SUBTOTAL",
+      price: "11.00",
+    },
+    {
+      label: "Tax",
+      type: "TAX",
+      price: "1.00",
+    }
+  ]
 }
 
 const merchantInfo = {
@@ -54,14 +61,42 @@ const merchantInfo = {
 }
 
 const paymentDataRequest = {
-  ...baseRequest,
+  ...apiConfig,
   allowedPaymentMethods: [{...baseCardPaymentMethod, tokenizationSpecification}],
   transactionInfo,
-  merchantInfo
+  merchantInfo,
+  // callbackIntents = ["PAYMENT_AUTHORIZATION"],
+  // emailRequired: true, // default false
+  // shippingAddressRequired: true, // default false
+  // shippingAddressParameters : { // default none
+  //   allowedCountryCodes: ['BR'],
+  //   phoneNumberRequired: true
+  // },
+  // shippingOptionRequired: true, // default false
+  // shippingOptionParameters: {
+  //   defaultSelectedOptionId: "shipping-001",
+  //   shippingOptions: [
+  //     {
+  //       "id": "shipping-001",
+  //       "label": "$0.00: Free shipping",
+  //       "description": "Free Shipping delivered in 5 business days."
+  //     },
+  //     {
+  //       "id": "shipping-002",
+  //       "label": "$1.99: Standard shipping",
+  //       "description": "Standard shipping delivered in 3 business days."
+  //     },
+  //     {
+  //       "id": "shipping-003",
+  //       "label": "$1000: Express shipping",
+  //       "description": "Express shipping delivered in 1 business day."
+  //     }
+  //   ]
+  // }
 }
 
 const readyToPayRequest = {
-  ...baseRequest,
+  ...apiConfig,
   allowedPaymentMethods: [baseCardPaymentMethod]
 }
 
@@ -69,9 +104,8 @@ const readyToPayRequest = {
 export default {
   environment: 'TEST',
   buttonColor: 'black',
-  baseRequest,
-  allowedCardNetworks,
-  allowedCardAuthMethods,
+  buttonType: 'short', // default to long
+  baseRequest: apiConfig,
   merchantInfo,
   transactionInfo,
   tokenizationSpecification,
