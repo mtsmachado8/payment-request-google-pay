@@ -1,15 +1,15 @@
 {
-  "name": "vite-vue3-poc",
-  "version": "0.0.0",
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
-  },
-  "dependencies": {
-    "vue": "^3.0.0-beta.14"
+    "dev": "lerna run --parallel dev",
+    "bootstrap": "lerna bootstrap",
+    "build": "lerna run --scope frontend vite build"
   },
   "devDependencies": {
-    "vite": "^0.20.0",
-    "@vue/compiler-sfc": "^3.0.0-beta.14"
+    "lerna": "^3.20.2"
   }
 }

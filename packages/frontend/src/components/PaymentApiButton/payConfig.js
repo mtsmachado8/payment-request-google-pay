@@ -7,12 +7,13 @@ const paymentMethods = [
     supportedMethods: ['basic-card'],
     data: {
       supportedNetworks: ['visa', 'mastercard' ],
+      supportedTypes: ['credit','debit']
     }
   },
   {
     supportedMethods: ['https://google.com/pay'],
     data: {
-      merchantID: '12345',
+      merchantID: '123456789',
       // ...
     }
   },
@@ -21,12 +22,16 @@ const paymentMethods = [
 const transactionDetails = {
   total: {
     label: 'Total',
-    amount: { currency: 'BRL', value: '50.00' }
+    amount: { currency: 'BRL', value: '49.00' }
   },
   displayItems: [
     {
       label: 'Subtotal',
       amount: { currency: 'BRL', value: '50.00' }
+    },
+    {
+      label: 'Discount (10%)',
+      amount: { currency: 'BRL', value: '-1' },
     }
   ],
   shippingOptions: [

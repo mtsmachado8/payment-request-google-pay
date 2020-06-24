@@ -4,6 +4,8 @@
 
 <script>
 import payConfig from './payConfig'
+import pay from '../../services/paymentService';
+import { GooglePayRequestData } from '../../util/payment'
 
 export default {
   props: {
@@ -60,9 +62,6 @@ export default {
     },
 
     getGooglePaymentsClient () {
-      console.log('getGooglePaymentsClient')
-      console.log('paymentsClient', this.paymentsClient)
-
       if (this.paymentsClient === null) {
         this.paymentsClient = new google.payments.api.PaymentsClient({
           environment: this.options.environment,
@@ -75,8 +74,6 @@ export default {
           //   onPaymentDataChanged: this.onPaymentDataChanged
           // }
         })
-        console.log('environment', this.options.environment)
-
       }
       return this.paymentsClient
     },
@@ -129,8 +126,6 @@ export default {
     },
 
     addGooglePayButton () {
-      console.log('addGooglePayButton')
-
       const button = this.paymentsClient.createButton({
         onClick: () => this.googlePayButtonClick(),
         buttonColor: this.options.buttonColor,
@@ -170,14 +165,30 @@ export default {
     },
 
     googlePayButtonClick () {
-      console.log('googlePayButtonClick')
-      
-      console.log(this.options.paymentDataRequest)
+      console.log('paymentDataRequest', this.options.paymentDataRequest)
       const paymentsClient = this.getGooglePaymentsClient()
       paymentsClient
         .loadPaymentData(this.options.paymentDataRequest)
-        .then(paymentData => {
-          this.$emit('payed', paymentData)
+        .then(googlePayData => {
+          const googlePayDataRequest = GooglePayRequestData({
+            currency: this.options.paymentDataRequest.transactionInfo.currencyCode,
+            googlePayData,
+            customer: {
+              name: 'Anonimous',
+              email: googlePayData.email
+            },
+            items: this.options.paymentDataRequest.transactionInfo.displayItems.map(item => ({
+              amount: Number.parseInt(item.price.replace(/\D/g, '')),
+              description: item.label,
+              quantity: 1
+            })),
+            metadata: {
+              customerId: '1'
+            }
+          })
+          pay(googlePayDataRequest)
+            .then(res => this.$emit('payed', res.data))
+            .catch(err => console.error(err))
         })
         .catch(err => {
           console.error(err)

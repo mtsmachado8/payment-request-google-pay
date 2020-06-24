@@ -22,16 +22,6 @@ const tokenizationSpecification = {
     // gatewayMerchantId: 'exampleGatewayMerchantId'
     gateway: 'mundipagg',
     gatewayMerchantId: 'merch_MXGNWZCz5UxzeQz0',
-    type: 'google_pay',
-    google_pay: {
-      version: 'EC_v1',
-      merchant_identifier: '',
-      data: '',
-      header: {
-        ephemeral_public_key: ''
-      },
-      signature: ''
-    }
   }
 }
 
@@ -77,8 +67,8 @@ const paymentDataRequest = {
   allowedPaymentMethods: [{...baseCardPaymentMethod, tokenizationSpecification}],
   transactionInfo,
   merchantInfo,
+  emailRequired: true, // default false
   // callbackIntents = ["PAYMENT_AUTHORIZATION"],
-  // emailRequired: true, // default false
   // shippingAddressRequired: true, // default false
   // shippingAddressParameters : { // default none
   //   allowedCountryCodes: ['BR'],

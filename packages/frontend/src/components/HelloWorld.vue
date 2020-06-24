@@ -2,7 +2,7 @@
   <h1>{{ msg }}</h1>
   <button @click="count++">count is: {{ count }}</button>
   <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
-  <PaymentRequestButton 
+  <PaymentApiButton 
     @payed="payed($event)"
     @cancel="cancelled"
   />
@@ -14,14 +14,14 @@
 
 <script>
 import GooglePayButton from './GooglePayButton'
-import PaymentRequestButton from './PaymentRequestButton'
+import PaymentApiButton from './PaymentApiButton'
 
 export default {
   name: 'HelloWorld',
 
   components: {
     GooglePayButton,
-    PaymentRequestButton
+    PaymentApiButton
   },
 
   props: {
