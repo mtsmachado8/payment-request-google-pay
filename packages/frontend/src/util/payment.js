@@ -48,7 +48,11 @@ export function GooglePayRequestData({
     name: '',
     email: ''
   }, 
-  items,
+  items = [{
+    amount: 1100, // Number without . and ,
+    description: '',
+    quantity: 1
+  }],
   googlePayData = {
     apiVersion: 2,
     apiVersionMinor: 0,

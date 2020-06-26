@@ -29,29 +29,44 @@ export default {
     }
   },
 
-  setup () {
-    const paymentRequest = new PaymentRequest(paymentMethods, transactionDetails, infoReturned)
-
-    return {
-      paymentRequest
-    }
-  },
-
   methods: {
     async show() {
-      console.log('paymentRequest', this.paymentRequest)
-      this.paymentRequest.show()
-        .then(paymentResponse => {
-          // send response to payment processor
-          console.log(paymentResponse)
-          this.$emit('payed', paymentResponse)
-          paymentResponse.complete('success')
-        })
-        .catch(e => {
-          console.log(e)
-          this.$emit('canceled', e)
-          this.paymentRequest.complete('fail')
-        })
+      try{
+        const paymentRequest = new PaymentRequest(paymentMethods, transactionDetails, infoReturned)
+        console.log('paymentRequest', paymentRequest)
+
+        paymentRequest.onshippingaddresschange = e => e.updateWith(this.updateAddress(transactionDetails, paymentRequest));
+        paymentRequest.onshippingoptionchange = e => e.updateWith(this.updateShippingOption(transactionDetails, paymentRequest.shippingOption));
+        
+        const response = await paymentRequest.show()
+        // send response to payment processor
+        console.log(response)
+        this.$emit('payed', response)
+        response.complete('success') 
+      } catch (err) {
+        console.log(err)
+        this.$emit('canceled', err)
+      }
+    },
+
+    updateAddress(transactionDetails, paymentRequest) {
+      console.log('updateAddress', paymentRequest)
+
+      return transactionDetails
+    },
+
+    updateShippingOption(transactionDetails, selectedShippingOption) {
+      console.log('updateShippingOption', selectedShippingOption)
+
+      const updatedTransactionDetails = {
+        ...transactionDetails,
+        shippingOptions: transactionDetails.shippingOptions.map(shippingOption => ({
+          ...shippingOption,
+          selected: shippingOption.id === selectedShippingOption
+        }))
+      }
+
+      return updatedTransactionDetails
     }
   }
 }
