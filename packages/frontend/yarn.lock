@@ -4477,9 +4477,9 @@ node-fetch-npm@^2.0.2:
     safe-buffer "^5.1.1"
 
 node-fetch@^2.3.0, node-fetch@^2.5.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.0.tgz#e633456386d4aa55863f676a7ab0daa8fdecb0fd"
-  integrity sha512-8dG4H5ujfvFiqDmVu9fQ5bOHUC15JMjMY/Zumv26oOvvVJjM67KF8koCWIabKQ1GJIa9r2mMZscBq/TbdOcmNA==
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
 
 node-forge@0.9.0:
   version "0.9.0"
@@ -6517,10 +6517,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite@^0.20.0:
-  version "0.20.8"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.8.tgz#dee70204b2c514cbae37e334cac56f2588791bba"
-  integrity sha512-ZqsDaEKp/rUBLAkOtz+avjFKbOhb38ewesvQmgePg/Y9RcJhmWUqF0cUovFqHNeVamDCdQNLI/kdQMjXg9o87g==
+vite@^0.20.8:
+  version "0.20.10"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.10.tgz#ea56021b312cd7c5b022d5dc8dde20f92f157af8"
+  integrity sha512-7CPeAbsaXUKf6fDVWBsZtEBHDgjEVCiBatj1b9kqfbwqc3jP0JeyVDrJjP52skNqX8w8/V65YVDrYTllOnssWA==
   dependencies:
     "@babel/parser" "^7.9.4"
     "@rollup/plugin-commonjs" "^13.0.0"
