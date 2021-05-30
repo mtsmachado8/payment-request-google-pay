@@ -6517,10 +6517,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite@^0.20.0:
-  version "0.20.8"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.8.tgz#dee70204b2c514cbae37e334cac56f2588791bba"
-  integrity sha512-ZqsDaEKp/rUBLAkOtz+avjFKbOhb38ewesvQmgePg/Y9RcJhmWUqF0cUovFqHNeVamDCdQNLI/kdQMjXg9o87g==
+vite@^0.20.8:
+  version "0.20.10"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.10.tgz#ea56021b312cd7c5b022d5dc8dde20f92f157af8"
+  integrity sha512-7CPeAbsaXUKf6fDVWBsZtEBHDgjEVCiBatj1b9kqfbwqc3jP0JeyVDrJjP52skNqX8w8/V65YVDrYTllOnssWA==
   dependencies:
     "@babel/parser" "^7.9.4"
     "@rollup/plugin-commonjs" "^13.0.0"
@@ -6694,9 +6694,9 @@ write-pkg@^3.1.0:
     write-json-file "^2.2.0"
 
 ws@^7.2.3:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.0.tgz#4b2f7f219b3d3737bc1a2fbf145d825b94d38ffd"
-  integrity sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==
+  version "7.4.6"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
+  integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
 
 xtend@~4.0.1:
   version "4.0.2"
