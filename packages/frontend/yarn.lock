@@ -1271,9 +1271,9 @@ agentkeepalive@^3.4.1:
     humanize-ms "^1.2.1"
 
 ajv@^6.5.5:
-  version "6.12.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.2.tgz#c629c5eced17baf314437918d2da88c99d5958cd"
-  integrity sha512-k+V+hzjm5q/Mr8ef/1Y9goCmlsK4I6Sm74teeyGvFk1XrOsbsKLjEdrvny42CZ+a8sXbk8KWpY/bDwS+FLL2UQ==
+  version "6.12.6"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
+  integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -6455,9 +6455,9 @@ upath@^1.2.0:
   integrity sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==
 
 uri-js@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.2.2.tgz#94c540e1ff772956e2299507c010aea6c8838eb0"
-  integrity sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
+  integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
 
@@ -6517,10 +6517,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite@^0.20.0:
-  version "0.20.8"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.8.tgz#dee70204b2c514cbae37e334cac56f2588791bba"
-  integrity sha512-ZqsDaEKp/rUBLAkOtz+avjFKbOhb38ewesvQmgePg/Y9RcJhmWUqF0cUovFqHNeVamDCdQNLI/kdQMjXg9o87g==
+vite@^0.20.8:
+  version "0.20.10"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-0.20.10.tgz#ea56021b312cd7c5b022d5dc8dde20f92f157af8"
+  integrity sha512-7CPeAbsaXUKf6fDVWBsZtEBHDgjEVCiBatj1b9kqfbwqc3jP0JeyVDrJjP52skNqX8w8/V65YVDrYTllOnssWA==
   dependencies:
     "@babel/parser" "^7.9.4"
     "@rollup/plugin-commonjs" "^13.0.0"
